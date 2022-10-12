@@ -32,7 +32,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(value = "web")
 public class JavaConfig {
-
     private final Environment env;
 
     @Autowired
