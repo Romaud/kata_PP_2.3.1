@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h3>All users</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Operations</th>
+    </tr>
+    <th:block th:each="user : ${users}">
+        <th:block>
+        </th:block>
+        <tr>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.email}"></td>
+            <td><input type="button" value="Update"
+                       th:onclick="'window.location.href = \'' + @{/new/{id}(id=${user.id})} + '\''"></td>
+            <td><input type="button" value="Delete"
+                       th:onclick="'window.location.href = \'' + @{/{id}(id=${user.id})} + '\''"></td>
+        </tr>
+    </th:block>
+</table>
+<br>
+<!--при нажатии на кнопку Add происходит переход по адресу "/new"-->
+<input type="button" value="Add" onclick="window.location.href='/new'">
+</body>
+</html>

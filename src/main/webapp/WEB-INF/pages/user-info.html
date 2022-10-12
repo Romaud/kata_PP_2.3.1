@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User info</title>
+</head>
+<body>
+<h2>User info</h2>
+<br>
+<!--Создаем форму для считывания полей пользователя и добавления этого пользователя в базу
+В атрибутах формы обязательно
+1) th:method="post" - указываются метод запроса
+2) th:action="@{/}" - URL адрес, куда будут передаваться данные с формы
+3) th:object="${user}" - для формы передается объект кдасса user, который был указан в атрибуте модели с ключом user
+Далее в th:field="*{firstName}" - указываются данные для полей-->
+<form th:method="post" th:action="@{/}" th:object="${user}">
+    <input type="hidden" th:field="*{id}">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{firstName}" id="name">
+    <br><br>
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{lastName}" id="surname">
+    <br><br>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br><br>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
