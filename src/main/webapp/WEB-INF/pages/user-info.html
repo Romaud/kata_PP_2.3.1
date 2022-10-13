@@ -13,7 +13,7 @@
 2) th:action="@{/}" - URL адрес, куда будут передаваться данные с формы
 3) th:object="${user}" - для формы передается объект кдасса user, который был указан в атрибуте модели с ключом user
 Далее в th:field="*{firstName}" - указываются данные для полей-->
-<form th:method="post" th:action="@{/}" th:object="${user}">
+<form th:method="post" th:action="@{/save}" th:object="${user}">
     <input type="hidden" th:field="*{id}">
     <label for="name">Name</label>
     <input type="text" th:field="*{firstName}" id="name">

@@ -15,16 +15,18 @@
         <th>Operations</th>
     </tr>
     <th:block th:each="user : ${users}">
-        <th:block>
-        </th:block>
         <tr>
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.email}"></td>
             <td><input type="button" value="Update"
                        th:onclick="'window.location.href = \'' + @{/new/{id}(id=${user.id})} + '\''"></td>
-            <td><input type="button" value="Delete"
-                       th:onclick="'window.location.href = \'' + @{/{id}(id=${user.id})} + '\''"></td>
+            <td>
+                <form th:action="@{/delete/{id}(id=${user.id})}" th:method="DELETE">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
     </th:block>
 </table>

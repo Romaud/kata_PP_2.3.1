@@ -33,7 +33,7 @@ public class UserController {
         return "user-info";
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
@@ -45,7 +45,7 @@ public class UserController {
         return "user-info";
     }
 
-    @RequestMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return "redirect:/";
